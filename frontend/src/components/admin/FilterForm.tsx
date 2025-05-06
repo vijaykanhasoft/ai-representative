@@ -77,10 +77,10 @@ const FilterForm: React.FC<FilterFormProps> = ({ filter, setFilter }) => {
           onChange={(e) => setFilter(e.target.value as string)}
         >
           <MenuItem value="all">All Leads</MenuItem>
-          <MenuItem value="very big potential customer">Very Big Potential</MenuItem>
-          <MenuItem value="hot lead">Hot Leads</MenuItem>
-          <MenuItem value="weak lead">Weak Leads</MenuItem>
-          <MenuItem value="not relevant">Not Relevant</MenuItem>
+          <MenuItem value="big_potential">Very Big Potential</MenuItem>
+          <MenuItem value="hot_lead">Hot Leads</MenuItem>
+          <MenuItem value="medium_potential">Weak Leads</MenuItem>
+          <MenuItem value="low_potential">Not Relevant</MenuItem>
         </Select>
       </FormControl>
     </Box>

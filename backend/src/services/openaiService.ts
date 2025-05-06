@@ -18,6 +18,8 @@ const openai = new OpenAI({
  * @param conversation - Array of conversation messages.
  * @returns The determined lead category.
  */
+
+
 export const analyzeLead = async (conversation: Conversation[]): Promise<string> => {
   try {
     // Extract and combine user messages for analysis
@@ -28,11 +30,12 @@ export const analyzeLead = async (conversation: Conversation[]): Promise<string>
 
     // Build prompt with defined lead categories and conversation details
     const prompt = `
-      Analyze the following customer conversation and categorize the lead as one of:
-      - ${LEAD_CATEGORIES.HOT_LEAD}: Ready to buy, clear need, budget available
-      - ${LEAD_CATEGORIES.BIG_POTENTIAL}: Strong interest, clear need, but may need time
-      - ${LEAD_CATEGORIES.MEDIUM_POTENTIAL}: Some interest, unclear need or timeline
-      - ${LEAD_CATEGORIES.LOW_POTENTIAL}: Just browsing, no clear need or interest
+    Analyze this conversation between a sales rep and potential lead about software development services.
+    Categorize the lead as:
+      - ${LEAD_CATEGORIES.HOT_LEAD}: Established business, clear need, budget available, budget morethan 4k month or 40k project
+      - ${LEAD_CATEGORIES.BIG_POTENTIAL}: Enterprise company (500+ employees), budget morethan 6k month or 60k project
+      - ${LEAD_CATEGORIES.MEDIUM_POTENTIAL}: Side project, low budget, undecided, early stage, budget morethan 2k month or 20k project
+      - ${LEAD_CATEGORIES.LOW_POTENTIAL}: Student, no budget, wants free help, or not serious
       
       Conversation:
       ${userMessages}
